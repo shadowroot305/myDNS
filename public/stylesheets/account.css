@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'ubuntul';
+    src: url('./fonts/Ubuntu-L.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ubuntur';
+    src: url('./fonts/Ubuntu-R.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+html {
+    font-family: 'ubuntul';
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .pt_card {
+    margin: 10px;
+    width: 20px;
+    height: 25px;
+    border-radius: 0px 0px 25px 25px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(180, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    align-content: center;
+}
+  body {
+    margin: 0;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-areas: 
+    'header header header ' 
+    'nav nav nav ' 
+    'main main main ' 
+    'footer footer footer ';
+    grid-template-columns: auto auto auto;
+    background-color: rgb(218, 218, 218); 
+  }
+
+    body>header {
+        display: flex;
+        grid-area: header;
+        background-color: #07889B;
+        width: auto;
+        height: 60px;
+      }
+      
+
+      body>header>h1 {
+        margin: auto;
+        font-family: 'ubuntur';
+        color: rgb(218, 218, 218);
+      }
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color:  rgb(50,140,193); }
+
+a:visited {
+    color:white;
+    font-size: 50px;
+}
+
+ul {
+    list-style-type: none;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    grid-area: nav;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    font-family: ubuntul;
+    font-size: 26px;
+    background-color: #E37222;
+    box-shadow: 5px 5px 20px rgba(0, 0, 125, 0.25);
+}
+
+nav>ul>li>a {
+    color: white;
+    margin: 10px;
+}
+main {
+    display: flex;
+    height: auto;
+    width: auto;
+    font-size: 18px;
+    grid-area: main;
+    flex-direction: column;
+    background-size: cover;
+    align-content: center;
+    margin: 10px;
+
+}
+
+ .cards-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;  
+    margin:0;
+    justify-content: center;
+}
+
+.card {
+    margin: 10px;
+    padding-top: 60px;
+    width: 390px;
+    height: 114px;
+    border-radius: 25px 25px 25px 25px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #EEAA7B;
+    cursor: pointer;
+    background-color: #66B9BF;
+    font-family: 'ubuntul';
+    font-size: 32px;
+    align-items: center;
+    color: white;
+    text-align: center;
+    align-content: center;
+}
+
+section>main{
+    height: 100%;
+    width: 100%;
+    margin-top: 25px;
+    align-content: center;
+}
+
+
+aside {
+    display: flex;
+    grid-area: aside;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+footer {
+    display: flex;
+    grid-area: footer;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    font-family: ubuntul;
+    font-size: 18px;
+    background-color: #E37222;
+    color: rgb(220, 220, 220);
+  }

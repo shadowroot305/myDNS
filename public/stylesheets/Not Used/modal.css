@@ -1,0 +1,102 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 8888;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.500);
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: rgb(70, 70, 0);
+    margin: auto;
+    padding: 5px;
+    border: 5px solid rgb(255, 255, 0);
+    border-radius: 25px;
+    box-shadow: 2.5px 2.5px 10px 3.5px rgba(255, 255, 0, 0.514), +2.5px +2.5px 10px 3.5px rgba(255, 255, 0, 0.397);
+    width: 30%;
+    color: rgb(255, 255, 0);
+}
+
+
+@media (min-width: 1366px) {
+
+    .modal-content {
+        background-color: rgb(70, 70, 0);
+        margin: auto;
+        padding: 5px;
+        border: 5px solid rgb(255, 255, 0);
+        border-radius: 25px;
+        box-shadow: 2.5px 2.5px 10px 3.5px rgba(255, 255, 0, 0.514), +2.5px +2.5px 10px 3.5px rgba(255, 255, 0, 0.397);
+        width: 30%;
+        color: rgb(255, 255, 0);
+    }
+}
+
+form {
+    padding: 25px;
+    margin: 25px;
+}
+
+
+.in,
+.text {
+    width: calc(100% - 18px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border-color: rgb(255, 255, 0);
+    border-radius: 10px;
+    border-width: 5px;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 0);
+    font-size: 18px;
+}
+
+
+.btn {
+    background: rgb(255, 255, 0);
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: rgb(255, 255, 0);
+    font-size: 20px;
+    box-shadow: 2.5px 2.5px 10px 3.5px rgba(255, 255, 0, 0.514), +2.5px +2.5px 10px 3.5px rgba(255, 255, 0, 0.397);
+    background-color: rgb(70, 70, 0);
+    color: rgb(255, 255, 0);
+    width: 100%;
+}
+
+.bt:hover {
+    background-color: rgb(255, 255, 0);
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: rgb(255, 255, 0);
+    font-size: 20px;
+    box-shadow: 2.5px 2.5px 10px 3.5px rgba(255, 255, 0, 0.514), +2.5px +2.5px 10px 3.5px rgba(255, 255, 0, 0.397);
+    color: rgb(70, 70, 0);
+    width: 100%;
+}
+
+/* The Close Button */
+
+
+.close {
+    color: rgb(255, 255, 0);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 0);
+    text-decoration: none;
+    cursor: pointer;
+}

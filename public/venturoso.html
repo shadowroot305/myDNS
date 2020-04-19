@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" type="text/css" href="./stylesheets/custom.css">
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/venturoso.js"></script>
+    <title>myDNS</title>
+</head>
+<header>
+    <article class= pt_card></article><h1><a href="index.html">myDNS</h1> <article class= pt_card></article>
+    </header>
+<nav>
+    <ul>
+        <li>
+            <a href="index.html">Index</a>
+            <a href="dns.html">DNS Tables</a>
+            <a href="admin.html">Admin</a>
+            <a href="account.html">Your Account</a>
+
+        </li>
+    </ul>
+</nav>
+<body>
+    <main>
+        <section>
+            <h2><input type="text" value="[INSERT SUB-DOMAIN]" id="cc_custom">.venturoso.org</h2>
+
+                <section>
+                    IPV4 Address <input type="number" class="ip" id="cc_set1">.<input type="number"class="ip" id="cc_set2">.<input type="number"class="ip" id="cc_set3">.<input type="number"class="ip" id="cc_set4">
+                </section>
+
+                <section>
+                    Service <input type="text" id="cc_service">
+                </section>
+
+                <input type="button" value="Start new game" id="btn" onclick="postVenturoso()">
+        </section>
+
+            <table>        
+            <theader>
+                <tr>
+                    <th>Service</th>
+                    <th> Domain </th>
+                    <th> IPV4 </th>
+                </tr>
+            </theader>
+            <tbody id="venturoso_tab"></tbody>
+            </table>
+
+    </main>
+
+
+</body>
+</html>
