@@ -1,5 +1,6 @@
 
 var conquistador_tab;
+var term; 
 
 var cc_service;
 var cc_custom;
@@ -12,6 +13,7 @@ var cc_set4;
 
 window.onload = function () {
     conquistador_tab = document.getElementById("conquistador_tab")
+    term = document.getElementById("term")
 
     cc_service = document.getElementById("cc_service")
     cc_custom = document.getElementById("cc_custom")
@@ -22,7 +24,7 @@ window.onload = function () {
     cc_set4 = document.getElementById("cc_set4")
     
     loadTable();
-
+    loadCommand1();
     setInterval(loadTable, 2000);
 
 
@@ -55,6 +57,33 @@ window.onload = function () {
         })
     }
 
+
+function loadCommand1() {
+    jQuery.ajax({
+        url: "/api/custom/conquistador",
+        method: "GET",
+        contentType: "application/json",
+        dataType: "json",
+        success: function (res, status, jqXHR) {
+            console.log(status);
+            if (res.err) {
+                console.log(JSON.stringify(res));
+                return;
+            }
+            var cmd = "";
+            for (x in res) {
+                cmd +=
+                "printf " + "'" + res[x].cc_service+" "+ res[x].cc_custom + res[x].cc_original +" "+ res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4 + "\n'\n"
+            }
+            term.innerHTML = cmd;
+
+        },
+        error: function (jqXHR, errStr, errThrown) {
+            console.log(errStr);
+        }
+    })
+}
+
 } //closing bracket for windows onload
 
 
@@ -78,3 +107,4 @@ function postConquistador() {
     })
 
 }
+

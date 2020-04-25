@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="style" rel="stylesheet" type="text/css" href="./stylesheets/custom.css">
     <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/conquistador.js"></script>
+    <script src="./javascripts/conquistador.js"></script>    
+
     <title>myDNS</title>
 </head>
 <header>
@@ -43,12 +44,14 @@
                 <tr>
                     <th>Service</th>
                     <th> Domain </th>
-                    <th> IPV4 </th>
+                    <th> IPV4 </th>                    
                 </tr>
             </theader>
             <tbody id="conquistador_tab"></tbody>
             </table>
-
+            <textarea id="term" rows="4"></textarea><br/>
+            <input type="button" id="dwn-btn" value="Download"/>
+            <script src="./javascripts/download.js"></script>
     </main>
 
 
