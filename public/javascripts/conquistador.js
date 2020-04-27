@@ -83,7 +83,9 @@ function loadCommand1() {
         }
     })
 }
-
+$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+  console.log(JSON.stringify(data, null, 2));
+});
 } //closing bracket for windows onload
 
 
