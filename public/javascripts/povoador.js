@@ -22,7 +22,7 @@ window.onload = function () {
     cc_set4 = document.getElementById("cc_set4")
     
     loadTable();
-
+    loadCommand1();
     setInterval(loadTable, 2000);
 
 
@@ -54,7 +54,78 @@ window.onload = function () {
             }
         })
     }
+    function loadCommand1() {
+        jQuery.ajax({
+            url: "/api/custom/povoador",
+            method: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res, status, jqXHR) {
+                console.log(status);
+                if (res.err) {
+                    console.log(JSON.stringify(res));
+                    return;
+                }
+                var cmd = "";
+                for (x in res) {
+                    cmd +=
 
+                    //db.forward.net
+                    "cat db.forward.net; echo ';\n" +
+                    "; BIND data file for local loopback interface\n"+
+                    ";\n"+
+                    "$TTL	604800\n"+
+                    "@	IN	SOA	"+ res[x].cc_custom + res[x].cc_original+". root.localhost. (\n"+
+                    "                 2		; Serial\n"+
+                    "            604800		; Refresh\n"+
+                    "             86400		; Retry\n"+
+                    "           2419200		; Expire\n"+
+                    "            604800 )	; Negative Cache TTL\n"+
+                    ";\n"+
+                    "@	IN	NS	"+res[x].cc_custom + res[x].cc_original+".\n"+
+                    "ns	IN	A	"+ res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4+"\n"+
+                    "server	IN	A	"+res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4+"' > db.forward.net;\n"+
+                    
+                    //db.reverse.net                  
+                    "cat db.reverse.net; echo ';\n"+
+                    "; BIND reverse data file for local loopback interface\n"+
+                    ";\n"+
+                    "$TTL	604800\n"+
+                    "@	IN	SOA	"+res[x].cc_custom + res[x].cc_original+". root.localhost. (\n"+
+			        "1		    ; Serial\n"+
+			        "604800		; Refresh\n"+
+			        "86400		; Retry\n"+
+			        "2419200	; Expire\n"+
+			        "604800 )	; Negative Cache TTL\n"+
+                    ";\n"+
+                    "@	IN	NS	ns.\n"+
+                    res[x].cc_set4+"	IN	PTR	ns."+res[x].cc_custom + res[x].cc_original+".\n"+
+                    res[x].cc_set4+"	IN	PTR	server."+res[x].cc_custom + res[x].cc_original+".' > db.reverse.net;\n"+
+                    
+                    //named.conf.local
+                    "cat named.conf.local; \n"+
+                    "echo 'zone	'"+ res[x].cc_custom + res[x].cc_original +"'	{ \n"+
+                    "    type master;\n"+
+                    "    file '/etc/bind/db.forward.net';\n"+
+                    "};\n"+
+                    "\n"+
+                    "zone	'"+ res[x].cc_set3+"."+ res[x].cc_set2 + "." + res[x].cc_set1 +".in-addr.arpa'	{\n"+
+                    "    type master;\n"+
+                    "    file '/etc/bind/db.reverse.net';\n"+
+                    "};' > named.conf.local;\n"+
+                    "cat resolv.conf; echo 'nameserver " + res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4+'\n'+
+                     'domain '+ res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4+'\n'+
+                     'search ' + res[x].cc_set1 + "." + res[x].cc_set2 + "." + res[x].cc_set3 + "." + res[x].cc_set4+"'> resolv.conf"+'\n'
+
+                }
+                term.innerHTML = cmd;
+    
+            },
+            error: function (jqXHR, errStr, errThrown) {
+                console.log(errStr);
+            }
+        })
+    }
 } //closing bracket for windows onload
 
 

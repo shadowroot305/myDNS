@@ -135,3 +135,13 @@ input {
 #service {
   width: 167px;
 }
+
+#term {
+  width: 60%;
+  align-self: center;
+  height: 670px;
+}
+
+#dwn-btn {
+  align-self: center;
+}
